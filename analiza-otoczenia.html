@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Analiza otoczenia</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #f6f2ea;
+  color: #171411;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  min-height: 100vh;
+}
+
+main {
+  padding: 54px 64px 90px;
+  max-width: 860px;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 54px;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+h2 {
+  margin: 46px 0 18px;
+  font-size: 30px;
+  line-height: 1.18;
+  font-weight: 800;
+}
+
+.reader-subtitle {
+  margin: 0 0 42px;
+  color: #6f675d;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.reader-paragraph {
+  font-size: 20px;
+  line-height: 1.78;
+  margin: 0 0 28px;
+  white-space: pre-wrap;
+}
+
+.reader-hero-image,
+.reader-section-image {
+  margin: 24px 0 34px;
+}
+
+.reader-hero-image img,
+.reader-section-image img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #f0ece3;
+  box-shadow: 0 14px 34px rgba(30, 25, 18, 0.08);
+}
+
+.reader-section-image img {
+  max-height: 320px;
+}
+
+.reader-hero-image figcaption,
+.reader-section-image figcaption {
+  margin-top: 8px;
+  color: #8a8277;
+  font-size: 12px;
+  line-height: 1.4;
+}
+aside {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-left: 1px solid #ddd4c5;
+  background: #faf7ef;
+  padding: 38px 28px;
+}
+
+aside::before {
+  content: "Wyjaśnienia";
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.term {
+  background: #fff1b8;
+  border-bottom: 2px solid #d8b429;
+  border-radius: 4px;
+  padding: 0 2px;
+  cursor: pointer;
+}
+
+.term:hover {
+  background: #ffe680;
+}
+
+.term-box {
+  border: 1px solid #ddd4c5;
+  border-radius: 18px;
+  padding: 18px;
+  background: #fffdf8;
+  box-shadow: 0 14px 34px rgba(30, 25, 18, 0.07);
+}
+
+.term-box h3 {
+  margin: 0 0 14px;
+  font-size: 25px;
+  line-height: 1.18;
+  font-weight: 800;
+}
+
+.term-box p {
+  font-size: 18px;
+  line-height: 1.58;
+  margin: 0 0 14px;
+}
+
+.term-box img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #f0ece3;
+  margin: 8px 0 12px;
+  cursor: zoom-in;
+}
+
+.img-meta {
+  margin: -4px 0 12px;
+  font-size: 12px;
+  color: #8a8277;
+  line-height: 1.35;
+}
+
+.brand {
+  grid-column: 1 / 2;
+  margin: 0 64px 34px;
+  padding: 22px 28px;
+  border: 1px solid #ddd4c5;
+  border-radius: 22px;
+  background: #fffdf8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  box-shadow: 0 14px 36px rgba(30, 25, 18, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-word {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -0.085em;
+  color: #171717;
+}
+
+.brand-format {
+  margin-top: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: #6157ff;
+}
+
+.brand-meta {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.brand-link {
+  color: #6157ff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  body {
+    display: block;
+  }
+
+  main {
+    padding: 32px 24px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  aside {
+    position: static;
+    height: auto;
+    border-left: 0;
+    border-top: 1px solid #ddd4c5;
+  }
+
+  .brand {
+  margin: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-column: auto;
+}
+
+.brand-name {
+  font-size: 36px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<main>
+<h1>Analiza otoczenia</h1>
+<div class="reader-subtitle">CTXBOOK – text easy to understand</div>
+
+
+    <figure class="reader-hero-image">
+      <img src="https://pixabay.com/get/g6e3a1661ad89bf03443df8ab1661a67bfbe191d90a10768f7fffe13d32169a4772426175cae8d9c6aeae0fc180b2f48185cfd13970f55c54d83fabd3fe21af87_640.jpg" alt="data, chart, graph, monitor, marketing, infographics, analyze, blue marketing, blue data, data, data, data, data, data, chart, graph, graph, marketing">
+      <figcaption>data, chart, graph, monitor, marketing, infographics, analyze, blue marketing, blue data, data, data, data, data, data, chart, graph, graph, marketing
+Pixabay · yatsusimnetcojp</figcaption>
+    </figure>
+  
+
+
+  <section>
+    
+    <h2>Dlaczego otoczenie ma znaczenie?</h2>
+    <p class="reader-paragraph">Wyobraź sobie, że ktoś otwiera nową kawiarnię. Ma świetny lokal, dobre ekspresy do kawy, piękne logo, dopracowane wnętrze, pyszne ciasta i ambitny plan marketingowy.</p><p class="reader-paragraph">Mimo to, po roku biznes upada. Powodów może być wiele: w pobliżu pojawiła się silna <span class="term" data-term="konkurencja">konkurencja</span>, wzrosły ceny energii i wynajmu lokalu, klienci zaczęli oszczędzać z powodu inflacji, zmieniły się <span class="term" data-term="trendy_konsumenckie">trendy konsumenckie</span>, remont ulicy ograniczył ruch pieszy, albo właściciel źle ocenił liczbę potencjalnych klientów.</p><p class="reader-paragraph">Wszystkie te czynniki są poza firmą, ale wpływają na jej funkcjonowanie. To właśnie nazywamy otoczeniem przedsiębiorstwa.</p><p class="reader-paragraph">Nawet najlepszy pomysł może mieć problemy, jeśli przedsiębiorca nie rozumie rynku i warunków działania. Dlatego analiza otoczenia jest jednym z kluczowych etapów planowania biznesu.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Definicja otoczenia przedsiębiorstwa</h2>
+    <p class="reader-paragraph">Otoczenie przedsiębiorstwa to wszystkie czynniki poza firmą, które wpływają na jej działalność, bezpośrednio lub pośrednio.</p><p class="reader-paragraph">Może obejmować klientów, konkurentów, dostawców, prawo, gospodarkę, technologie, trendy społeczne, warunki naturalne, a nawet <span class="term" data-term="trendy_konsumenckie">zmiany stylu życia</span> ludzi.</p><p class="reader-paragraph">Firma nie kontroluje większości tych elementów i musi się do nich dostosowywać.</p><p class="reader-paragraph">Biznes działa w zmieniającej się rzeczywistości: branże mogą rosnąć lub przechodzić kryzys.</p><p class="reader-paragraph">Właśnie dlatego przedsiębiorcy muszą nieustannie obserwować otoczenie, nie tylko zarządzać firmą.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Mikrootoczenie i makrootoczenie</h2>
+    <p class="reader-paragraph">Otoczenie przedsiębiorstwa dzieli się zwykle na dwie części: <span class="term" data-term="mikrootoczenie">mikrootoczenie</span> i <span class="term" data-term="makrootoczenie">makrootoczenie</span>.</p><p class="reader-paragraph">To podstawowy podział wykorzystywany w analizie biznesowej.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Mikrootoczenie – kto ma bezpośredni wpływ?</h2>
+    <p class="reader-paragraph"><span class="term" data-term="mikrootoczenie">Mikrootoczenie</span> to elementy mające bezpośredni wpływ na firmę, znajdujące się najbliżej niej.</p><p class="reader-paragraph">Najczęściej to klienci, dostawcy, <span class="term" data-term="kanaly_dystrybucji">pośrednicy</span> i <span class="term" data-term="konkurencja">konkurencja</span>.</p><p class="reader-paragraph">To podmioty, z którymi firma kontaktuje się codziennie.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Klienci w mikrootoczeniu</h2>
+    <p class="reader-paragraph">Klienci są najważniejsi – bez nich firma nie ma przychodów.</p><p class="reader-paragraph">Przedsiębiorstwo musi dobrze rozumieć odbiorców – ich wiek, styl życia, zainteresowania, dochody, miejsce zamieszkania, korzystanie z internetu, potrzeby i przyzwyczajenia zakupowe.</p><p class="reader-paragraph">Na przykład luksusowe zegarki skierowane są do innej grupy niż tanie akcesoria dla uczniów.</p><p class="reader-paragraph">Zrozumienie klientów pozwala lepiej dopasować produkty i marketing.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Rola dostawców</h2>
+    <p class="reader-paragraph">Dostawcy dostarczają zasoby potrzebne firmie: surowce, produkty, komponenty, sprzęt, technologie, usługi.</p><p class="reader-paragraph">Relacje z dostawcami mogą być kluczowe – na przykład restauracja zależy od jakości produktów spożywczych, firma technologiczna od dostępności podzespołów.</p><p class="reader-paragraph">Problemy dostawców, jak przerwy w łańcuchach dostaw podczas pandemii COVID-19, szybko stają się problemami firmy.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Pośrednicy w mikrootoczeniu</h2>
+    <p class="reader-paragraph"><span class="term" data-term="kanaly_dystrybucji">Pośrednicy</span> pomagają firmie dotrzeć do klientów: sklepy, platformy internetowe, agencje reklamowe, firmy logistyczne, influencerzy, partnerzy handlowi.</p><p class="reader-paragraph">Coraz więcej biznesów wykorzystuje różne kanały, np. sprzedaż przez własny sklep online, marketplace’y, media społecznościowe.</p><p class="reader-paragraph">Każdy kanał ma różne koszty i ryzyka.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Znaczenie konkurencji</h2>
+    <p class="reader-paragraph"><span class="term" data-term="konkurencja">Konkurencja</span> to firmy oferujące podobne produkty lub usługi.</p><p class="reader-paragraph">Analiza konkurencji pozwala poznać liczbę konkurentów, ich ceny, <span class="term" data-term="swot">mocne strony</span>, wyróżniki, opinie i komunikację z klientami.</p><p class="reader-paragraph">Ignorowanie konkurencji to częsty błąd, który może utrudnić sukces, nawet przy dobrym produkcie.</p><p class="reader-paragraph">Obecność konkurencji może też pokazywać, że jest <span class="term" data-term="popyt">popyt</span> na rynku.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Makrootoczenie – siły wykraczające poza firmę</h2>
+    <p class="reader-paragraph"><span class="term" data-term="makrootoczenie">Makrootoczenie</span> to szerokie warunki gospodarki i społeczeństwa, na które firma zwykle nie ma wpływu.</p><p class="reader-paragraph">Przedsiębiorstwo musi się do nich dostosować, bo one oddziałują na wszystkie firmy na rynku.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Otoczenie demograficzne</h2>
+    <p class="reader-paragraph"><span class="term" data-term="demografia">Demografia</span> dotyczy cech społeczeństwa: liczby ludności, wieku, struktury rodzin, migracji, poziomu wykształcenia.</p><p class="reader-paragraph">Zmiany demograficzne mogą całkowicie zmienić rynek.</p><p class="reader-paragraph">Starzenie społeczeństwa zwiększa <span class="term" data-term="popyt">popyt</span> na usługi medyczne i produkty dla seniorów.</p><p class="reader-paragraph">Wzrost młodych użytkowników internetu sprzyja rozwojowi aplikacji mobilnych i e-commerce.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Otoczenie polityczno-prawne</h2>
+    <p class="reader-paragraph">Prawo może zwiększać koszty, ograniczać działalność, tworzyć <span class="term" data-term="swot">szanse</span> lub zmieniać konkurencję.</p><p class="reader-paragraph">Firmy muszą śledzić podatki, prawo pracy, regulacje środowiskowe i ochronę danych osobowych.</p><p class="reader-paragraph">Zmiany prawa w niektórych branżach mogą całkowicie zmieniać rynek.</p><p class="reader-paragraph">Na przykład zaostrzenie norm ekologicznych wymusza kosztowne zmiany w produkcji.</p>
+    
+  </section>
+
+  <section>
+    
+    <h2>Otoczenie ekonomiczne</h2>
+    <p class="reader-paragraph">Na firmę wpływa <span class="term" data-term="inflacja">inflacja</span>, bezrobocie, stopy procentowe, kursy walut, poziom wynagrodzeń i dostępność kredytów.</p><p class="reader-paragraph">Przy szybkim wzroście gospodarczym ludzie więcej wydają, podczas kryzysu oszczędzają.</p><p class="reader-paragraph">Niektóre branże odczuwają to szczególnie – np. luksusowa rozrywka traci w kryzysie.</p>
+    
+  </section>
+
+</main>
+
+<aside id="sidePanel">
+  <div class="term-box">
+    <h3>Wyjaśnienia</h3>
+    <p>Kliknij podkreślone pojęcie w tekście.</p>
+  </div>
+</aside>
+
+<div class="brand">
+  <div class="brand-logo">
+    <span class="brand-word">
+      <span class="brand-name">contextero</span>
+      <span class="brand-format">CTXBOOK FORMAT</span>
+    </span>
+  </div>
+
+  <div class="brand-meta">
+    Powered by <a class="brand-link" href="https://contextero.com" target="_blank">contextero.com</a>
+  </div>
+</div>
+<script>
+const TERMS = {"mikrootoczenie":{"title":"Mikrootoczenie","aliases":["mikrootoczenie","najbliższe otoczenie firmy"],"explanation":"Mikrootoczenie to najbliższe otoczenie przedsiębiorstwa, czyli podmioty mające bezpośredni wpływ na jego działalność, takie jak klienci, dostawcy, pośrednicy i konkurencja.","why":"Zrozumienie mikrootoczenia pozwala firmie kontrolować codzienne relacje biznesowe i reagować na ich zmiany.","image":{"originalUrl":"https://pixabay.com/photos/cat-yawns-yawning-sleepy-to-yawn-4542301/","label":"cat, yawns, yawning, sleepy, animal, pet, to yawn, i love it","source":"Pixabay · andriish22"}},"makrootoczenie":{"title":"Makrootoczenie","aliases":["makrootoczenie","warunki funkcjonowania gospodarki i społeczeństwa"],"explanation":"Makrootoczenie to szerokie warunki otaczające przedsiębiorstwo, na które zwykle nie ma ono wpływu, takie jak polityka, gospodarka, społeczeństwo, technologia, środowisko i prawo.","why":"Pomaga firmie dostosować się do szerszych zmian i trendów, które wpływają na rynek i działalność.","image":{"originalUrl":"https://upload.wikimedia.org/wikipedia/commons/2/24/ESEM_GDD.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"Principle of gaseous detection device (GDD) used for detection and amplification of signals in ESEM. Secondary electrons (SE) from specimen are acted upon by electric field E between cathode and anode electrodes at distance d. Electrons drift towards the anode biased with voltage V, multiplying in an avalanche process by collisions with gas while they diffuse laterally by thermal collisions with gas molecules.","source":"Wikimedia Commons · CC BY 3.0 · Gerry Danilatos (user:Esem0 at en.wikipedia, original upload at http://en.wikipedia.org/wi · AI-ranked: None of the candidate images relate to the concept of 'Schemat mikro- i makrootoczenia firmy' or to business environment schematics. Most images are scientific or microscopic photos unrelated to business environment context. Therefore, no suitable Wikimedia Commons image was found among the candidates for the educational context of micro and macro environment of a company.","fileTitle":"ESEM GDD.png","query":"Makrootoczenie"}},"analiza_rynku":{"title":"Analiza rynku","aliases":["analiza rynku","poznawanie rzeczywistości"],"explanation":"Analiza rynku to proces badania faktów o rynku, by zrozumieć popyt, konkurencję, potrzeby klientów i trendy.","why":"Pozwala przedsiębiorcy działać świadomie, zamiast podejmować decyzje „na oślep”.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Market_data_on_display_at_Taiwan_Stock_Exchange_20210208.jpg/1280px-Market_data_on_display_at_Taiwan_Stock_Exchange_20210208.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/3/34/Market_data_on_display_at_Taiwan_Stock_Exchange_20210208.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"​臺灣證券交易所內股市技術分析資訊顯示螢幕","source":"Wikimedia Commons · CC BY 2.0 · ​中華民國總統府 · AI-ranked: The image shows real market data displayed on multiple screens at the Taiwan Stock Exchange, which closely matches the context of an entrepreneur analyzing market data on multiple screens. It is a real, relevant photograph that fits educational content about market analysis, unlike reports or covers of documents.","fileTitle":"Market data on display at Taiwan Stock Exchange 20210208.jpg","query":"Analiza rynku"}},"grupa_docelowa":{"title":"Grupa docelowa","aliases":["grupa docelowa","konkretni odbiorcy"],"explanation":"Grupa docelowa to wybrani odbiorcy, do których skierowana jest oferta firmy, wyznaczona na podstawie cech i potrzeb.","why":"Dzięki temu firma może efektywniej tworzyć produkty i komunikację dostosowaną do konkretnych klientów.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Prosumpcjonizm_pop-przemys%C5%82%C3%B3w._Analiza_polskich_przedsi%C4%99biorstw_z_bran%C5%BCy_rozrywowejpdf.pdf/page1-960px-Prosumpcjonizm_pop-przemys%C5%82%C3%B3w._Analiza_polskich_przedsi%C4%99biorstw_z_bran%C5%BCy_rozrywowejpdf.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/0/0c/Prosumpcjonizm_pop-przemys%C5%82%C3%B3w._Analiza_polskich_przedsi%C4%99biorstw_z_bran%C5%BCy_rozrywowejpdf.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"książka udostępniona w ramach projektu Otwórz książkę (http://otworzksiazke.pl/)","source":"Wikimedia Commons · CC BY-SA 3.0 pl · Piotr Siuda (1982-)Grzegorz D. StunżaRadosław BombaMagdalena KamińskaAnna SzylarMarek Tros · AI-ranked: Among the candidates, only the first file is a book related to analysis of companies in the entertainment sector, which is closer to the topic of customer analysis in social media. The rest are official journals containing legal texts, which are not suitable images for illustrating the concept of target group or social media customer analysis. Although candidate 0 is a book file and not a direct photo or illustration, it is preferable to legal documents and may contain relevant charts or illustrations inside. However, there is no better illustrative image available among the candidates.","fileTitle":"Prosumpcjonizm pop-przemysłów. Analiza polskich przedsiębiorstw z branży rozrywowejpdf.pdf","query":"Analiza klientów w mediach społecznościowych"}},"swot":{"title":"Analiza SWOT","aliases":["analiza SWOT","mocne strony","słabe strony","szanse","zagrożenia"],"explanation":"SWOT to metoda oceny sytuacji firmy przez identyfikację Mocnych (Strengths) i Słabych stron (Weaknesses) oraz Szans (Opportunities) i Zagrożeń (Threats).","why":"Pomaga zrozumieć wewnętrzne i zewnętrzne czynniki wpływające na firmę, by lepiej planować rozwój.","image":{"url":"https://pixabay.com/get/g502813f52af447ddff9624909f9bb551014a3aed4785495c0105483a49857b0f22d71312819c1a60a74461d59fba375af25f0e0c88b43ab22fd00d14e8f10f40_640.jpg","originalUrl":"https://pixabay.com/photos/business-businesswoman-board-3139196/","label":"business, businesswoman, board, presentation, dynamic, success, female, successful, plan, business plan, goal, analysis, swot, mission, time line, strategy, teamwork, team, finance, financial, swot, swot, swot, swot, swot, mission, mission","source":"Pixabay · geralt"}},"pest":{"title":"Metoda PEST","aliases":["analiza PEST","PEST"],"explanation":"PEST to narzędzie analizy makrootoczenia, uwzględniające czynniki Political (polityczne), Economic (ekonomiczne), Social (społeczno-kulturowe) i Technological (technologiczne).","why":"Pozwala zidentyfikować czynniki wpływające na firmę z szerokiego otoczenia zewnętrznego.","image":{"url":"https://pixabay.com/get/g23d5794167332d219a766cd2e63a6916e1f4bbb35a539a7b4d2e198a21d320bc62704f2e848f51bcda7de50d9dc010800e2c70232c7b37fea674ae7267fa3473_640.jpg","originalUrl":"https://pixabay.com/photos/children-moc-chau-moc-chau-life-2099536/","label":"children moc chau, moc chau life, i waved son la, moc chau, ta xua, north yen","source":"Pixabay · ToanNguyen"}},"pestel":{"title":"Metoda PESTEL","aliases":["analiza PESTEL","PESTEL"],"explanation":"PESTEL rozszerza analizę PEST o czynniki Environmental (środowiskowe) oraz Legal (prawne).","why":"Umożliwia kompleksowe badanie otoczenia makropod kątem nowych zagrożeń i szans.","image":{"url":"https://pixabay.com/get/g7b1ade93fd917a2e2e2fa0dd472976b8429e5a790f1e199c1da2fbcfcb9744d6ce4a1b3d9150b8f3cb4e271a58b36cb273416a77d1a9e2dde383cffb640c8337_640.jpg","originalUrl":"https://pixabay.com/photos/children-moc-chau-moc-chau-life-2099536/","label":"children moc chau, moc chau life, i waved son la, moc chau, ta xua, north yen","source":"Pixabay · ToanNguyen"}},"konkurencja":{"title":"Konkurencja","aliases":["konkurencja","firmy konkurujące na rynku"],"explanation":"Konkurencja to firmy oferujące podobne produkty lub usługi na tym samym rynku.","why":"Analiza konkurencji pomaga zrozumieć rynek, szanse i zagrożenia, a także unikać błędów popełnianych przez innych.","image":{"url":"https://pixabay.com/get/ga5006be8bf0c342c57a30c48b21f8c2a10af6ab52daaa7d586ec39b902f85ee229c943eb62f8010b874e714653f3ff1c346bc972171f5a6683a56172e13bd525_640.jpg","originalUrl":"https://pixabay.com/photos/race-car-sports-car-motorsport-7624025/","label":"race car, sports car, motorsport, racetrack, sports, automobile, porsche, almost, race, competition, engine racing, car racing, speed, quickly, racing, speedway, race car, race car, sports car, sports car, sports car, sports, porsche, porsche, porsche, porsche, porsche, race, car racing, car racing, car racing, racing, racing","source":"race car, sports car, motorsport, racetrack, sports, automobile, porsche, almost, race, competition, engine racing, car racing, speed, quickly, racing, speedway, race car, race car, sports car, sports car, sports car, sports, porsche, porsche, porsche, porsche, porsche, race, car racing, car racing, car racing, racing, racing\nPixabay · mibro","caption":"race car, sports car, motorsport, racetrack, sports, automobile, porsche, almost, race, competition, engine racing, car racing, speed, quickly, racing, speedway, race car, race car, sports car, sports car, sports car, sports, porsche, porsche, porsche, porsche, porsche, race, car racing, car racing, car racing, racing, racing\nPixabay · mibro"}},"inflacja":{"title":"Inflacja","aliases":["inflacja"],"explanation":"Inflacja to wzrost ogólnego poziomu cen w gospodarce, przez co pieniądz traci na wartości.","why":"Wpływa na wydatki klientów i koszty funkcjonowania firm, co ma duże znaczenie dla decyzji biznesowych.","image":{"url":"https://pixabay.com/get/gad14891663ca14b259d20e67662c2c2b18758c9fbee469717e08ae5bf6850baa3bbc656e808873748885665338ba58a28de4b6bbf42aafa18a7655d42d9622cb_640.jpg","originalUrl":"https://pixabay.com/photos/inflation-euro-devaluation-money-7107103/","label":"inflation, euro, devaluation, money, economic crisis, currency, finance, economy, inflation, inflation, inflation, inflation, inflation","source":"inflation, euro, devaluation, money, economic crisis, currency, finance, economy, inflation, inflation, inflation, inflation, inflation\nPixabay · Alexandra_Koch","caption":"inflation, euro, devaluation, money, economic crisis, currency, finance, economy, inflation, inflation, inflation, inflation, inflation\nPixabay · Alexandra_Koch"}},"trendy_konsumenckie":{"title":"Trendy konsumenckie","aliases":["trendy konsumenckie","zmiany stylu życia"],"explanation":"Trendy konsumenckie to zmieniające się preferencje i zachowania klientów dotyczące produktów i usług.","why":"Śledzenie trendów pozwala firmom dostosować ofertę i zdobyć przewagę nad konkurencją.","image":{"url":"https://pixabay.com/get/g3555171bb9d33fce81eeb27ab9ac2a9d1d327e753d020546daaec434c39b9206ab6763ff6987c1d237b6ac340e69923a75b9b09639da0c07182b8c9d41247e80_640.jpg","originalUrl":"https://pixabay.com/photos/architecture-city-building-facade-8254661/","label":"architecture, city, building, facade, modern, urban, window, city, building, building, building, building, building","source":"Pixabay · qgadrian"}},"kanaly_dystrybucji":{"title":"Kanały dystrybucji","aliases":["kanały dystrybucji","pośrednicy"],"explanation":"Kanały dystrybucji to sposoby, przez które produkty lub usługi trafiają od producenta do klienta, np. sklepy, platformy online, influencerzy.","why":"Wybór kanałów wpływa na koszty, dostępność i rozpoznawalność produktów.","image":{"url":"https://pixabay.com/get/gbaa4237a4381a5b7eda33b5b1783f53a8879ccf6995a7bb62fe16504f62f797a007446c52590e93fe9ea4e525284099490585ac01063a9c58bc61d6dc7db6f10_640.jpg","originalUrl":"https://pixabay.com/photos/ecommerce-shopping-cart-buying-3530785/","label":"ecommerce, shopping, cart, buying, cost, effect, engine, marketing, laptop, pay, paying, power, retailer, sales, services, shop, product, retail, price, market, sell, business, seller, purchase, computer, ecommerce, ecommerce, ecommerce, ecommerce, ecommerce","source":"Pixabay · Mohamed_hassan"}},"popyt":{"title":"Popyt","aliases":["popyt"],"explanation":"Popyt to ilość produktów lub usług, jaką konsumenci są gotowi kupić po określonej cenie.","why":"Zrozumienie popytu jest podstawą planowania sprzedaży i cen.","image":{"url":"https://pixabay.com/get/g8b2fdb18e7820367b6b19d12f590e639a919ca9e2ba510b9ce797bc186573eb508ec08f0a8b2ef0d767efef03747cc64_640.jpg","originalUrl":"https://pixabay.com/photos/stores-china-clothing-shops-13797/","label":"stores, china, clothing, shops, shopping, shoppers, vendors, chinatown, market, retail, consumers, chinese, china, shoppers, chinatown, chinatown, chinatown, chinatown, chinatown, market, retail, retail, consumers, chinese","source":"stores, china, clothing, shops, shopping, shoppers, vendors, chinatown, market, retail, consumers, chinese, china, shoppers, chinatown, chinatown, chinatown, chinatown, chinatown, market, retail, retail, consumers, chinese\nPixabay · PublicDomainPictures","caption":"stores, china, clothing, shops, shopping, shoppers, vendors, chinatown, market, retail, consumers, chinese, china, shoppers, chinatown, chinatown, chinatown, chinatown, chinatown, market, retail, retail, consumers, chinese\nPixabay · PublicDomainPictures"}},"demografia":{"title":"Demografia","aliases":["demografia","otoczenie demograficzne"],"explanation":"Demografia to nauka o ludności, jej strukturze i zmianach, takich jak wiek, liczba, migracje czy wykształcenie.","why":"Zmiany demograficzne kształtują rynki i potrzeby konsumentów.","image":{"url":"https://pixabay.com/get/g90a41c2774c9f54de5d0ba6b2ee609f63c4acf0e105844a426dba7c6180199005a62fd9c6026329ac755226083f2175ef6e1bdcfa2ec59d548ebe4c333e090c6_640.jpg","originalUrl":"https://pixabay.com/photos/crowd-of-people-crowd-football-fans-1488213/","label":"crowd of people, crowd, football fans, people, group, event, stadium crowd, fans, group of people, spectators, supporters, texas high school football, texas, texans, game, crowd, crowd, crowd, crowd, crowd","source":"crowd of people, crowd, football fans, people, group, event, stadium crowd, fans, group of people, spectators, supporters, texas high school football, texas, texans, game, crowd, crowd, crowd, crowd, crowd\nPixabay · KeithJJ","caption":"crowd of people, crowd, football fans, people, group, event, stadium crowd, fans, group of people, spectators, supporters, texas high school football, texas, texans, game, crowd, crowd, crowd, crowd, crowd\nPixabay · KeithJJ"}},"sztuczna_inteligencja":{"title":"Sztuczna inteligencja","aliases":["sztuczna inteligencja","AI"],"explanation":"Sztuczna inteligencja to technologie umożliwiające maszynom wykonywanie zadań wymagających ludzkiej inteligencji, jak analiza danych czy uczenie maszynowe.","why":"Wpływa na przebieg pracy, marketing i konkurencyjność firm w nowoczesnym biznesie.","image":{"url":"https://pixabay.com/get/gd11ad31d31af6bd19fc9d94651c0c0a87f24185d8e4d85f3fa71c7474ba63afa6850c1f4ff7bb7a503b892727a04a53a22b44ffd5d450bd41a0d688e8e375911_640.jpg","originalUrl":"https://pixabay.com/photos/animals-dogs-portrait-weimaraner-7862112/","label":"animals, dogs, portrait, nature, weimaraner, days, pets, dane","source":"Pixabay · mtajmr"}}};
+
+document.querySelectorAll('.term').forEach(el => {
+  el.addEventListener('click', () => {
+    const key = el.dataset.term;
+    const term = TERMS[key];
+
+    if (!term) return;
+
+    document.getElementById("sidePanel").innerHTML =
+      '<div class="term-box">' +
+      '<h3>' + term.title + '</h3>' +
+    (term.image && term.image.url
+  ? '<div>' +
+      '<img src="' + term.image.url + '">' +
+      '<div class="img-meta">' + (term.image.source || '') + '</div>' +
+    '</div>'
+  : '') +
+      '<p>' + term.explanation + '</p>' +
+      '<p><em>' + (term.why || '') + '</em></p>' +
+      '</div>';
+  });
+});
+
+document.addEventListener('click', (event) => {
+  const img = event.target.closest('.term-box img');
+  if (!img) return;
+
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.inset = '0';
+  overlay.style.background = 'rgba(0,0,0,.82)';
+  overlay.style.display = 'grid';
+  overlay.style.placeItems = 'center';
+  overlay.style.zIndex = '9999';
+  overlay.style.cursor = 'zoom-out';
+
+  const big = document.createElement('img');
+  big.src = img.src;
+  big.style.maxWidth = '92vw';
+  big.style.maxHeight = '92vh';
+  big.style.objectFit = 'contain';
+  big.style.borderRadius = '14px';
+  big.style.background = '#fff';
+
+  overlay.appendChild(big);
+  overlay.addEventListener('click', () => overlay.remove());
+  document.body.appendChild(overlay);
+});
+</script>
+
+</body>
+</html>
