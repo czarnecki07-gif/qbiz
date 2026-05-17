@@ -1,0 +1,1078 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Efekty finansowe działalności przedsiębiorstwa</title>
+
+<style>
+
+:root {
+
+  --ctx-font-size: 20px;
+
+  --ctx-sidebar-width: 360px;
+
+  --ctx-sidebar-font-size: 16px;
+
+}
+
+body {
+
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  background: #f6f2ea;
+
+  color: #171411;
+
+  min-height: 100vh;
+
+}
+
+.reader-layout {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  width: 100%;
+
+  gap: 0;
+
+}
+
+main {
+
+  padding: 54px 64px 90px;
+
+  width: 100%;
+
+  max-width: 860px;
+
+}
+
+.resize-divider {
+
+  width: 10px;
+
+  cursor: col-resize;
+
+  background: transparent;
+
+  position: relative;
+
+}
+
+.resize-divider::before {
+
+  content: "◀ ▶";
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-size: 10px;
+
+  letter-spacing: -2px;
+
+  color: #9f9688;
+
+  font-family: Arial, sans-serif;
+
+}
+
+aside {
+
+  width: var(--ctx-sidebar-width);
+
+  min-width: var(--ctx-sidebar-width);
+
+  height: 100vh;
+
+  position: sticky;
+
+  top: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  border-left: 1px solid #ddd4c5;
+
+  background: #fbf8f3;
+
+  padding: 0 28px 28px;
+
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+}
+
+h1 {
+
+  margin: 0 0 10px;
+
+  font-size: 54px;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.04em;
+
+  font-weight: 800;
+
+}
+
+h2 {
+
+  margin: 46px 0 18px;
+
+  font-size: 30px;
+
+  line-height: 1.18;
+
+  font-weight: 800;
+
+}
+
+.reader-subtitle {
+
+  margin: 0 0 42px;
+
+  color: #6f675d;
+
+  font-size: 20px;
+
+  line-height: 1.4;
+
+}
+
+.reader-paragraph {
+
+  font-size: var(--ctx-font-size);
+
+  line-height: 1.78;
+
+  margin: 0 0 28px;
+
+  white-space: pre-wrap;
+
+}
+
+.reader-hero-image,
+.reader-section-image {
+
+  margin: 24px 0 34px;
+
+}
+
+.reader-hero-image img,
+.reader-section-image img {
+
+  width: 100%;
+
+  max-height: 420px;
+
+  object-fit: contain;
+
+  border-radius: 18px;
+
+  background: #f0ece3;
+
+  box-shadow: 0 14px 34px rgba(30, 25, 18, 0.08);
+
+}
+
+.reader-section-image img {
+
+  max-height: 320px;
+
+}
+
+.reader-hero-image figcaption,
+.reader-section-image figcaption {
+
+  margin-top: 8px;
+
+  color: #8a8277;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+}
+
+aside::before {
+
+  content: "Wyjaśnienia";
+
+  display: block;
+
+  font-size: 26px;
+
+  font-weight: 800;
+
+  margin: 18px 0 14px;
+
+  flex: 0 0 auto;
+
+}
+
+.term {
+
+  background: #fff1b8;
+
+  border-bottom: 2px solid #d8b429;
+
+  border-radius: 4px;
+
+  padding: 0 2px;
+
+  cursor: pointer;
+
+}
+.term:hover {
+  background: #ffe680;
+}
+.side-controls {
+
+  flex: 0 0 auto;
+
+  display: flex;
+
+  gap: 8px;
+
+  padding: 12px 0;
+
+  background: #fbf8f3;
+
+  z-index: 20;
+
+  border-bottom: 1px solid #ddd4c5;
+
+}
+
+.side-controls button {
+
+  border: 1px solid #d7d0c4;
+
+  background: white;
+
+  border-radius: 10px;
+
+  padding: 8px 10px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+}
+
+.term-box {
+
+  flex: 1 1 auto;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #ddd4c5;
+
+  border-radius: 18px;
+
+  padding: 18px;
+
+  background: #fffdf8;
+
+  box-shadow: 0 14px 34px rgba(30, 25, 18, 0.07);
+
+}
+
+.term-box h3 {
+  margin: 0 0 14px;
+  font-size: 25px;
+  line-height: 1.18;
+  font-weight: 800;
+}
+.term-box p {
+
+  font-size: var(--ctx-sidebar-font-size);
+
+  line-height: 1.58;
+
+  margin: 0 0 14px;
+
+}
+
+.term-box img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #f0ece3;
+  margin: 8px 0 12px;
+  cursor: zoom-in;
+}
+
+.img-meta {
+  margin: -4px 0 12px;
+  font-size: 12px;
+  color: #8a8277;
+  line-height: 1.35;
+}
+
+.brand {
+  grid-column: 1 / 2;
+  margin: 0 64px 34px;
+  padding: 22px 28px;
+  border: 1px solid #ddd4c5;
+  border-radius: 22px;
+  background: #fffdf8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  box-shadow: 0 14px 36px rgba(30, 25, 18, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-word {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -0.085em;
+  color: #171717;
+}
+
+.brand-format {
+  margin-top: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: #6157ff;
+}
+
+.brand-meta {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.brand-link {
+  color: #6157ff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+
+  .reader-layout {
+
+    display: block;
+
+  }
+
+  aside {
+
+    width: auto;
+
+    min-width: 0;
+
+    height: auto;
+
+    position: static;
+
+    border-left: 0;
+
+    border-top: 1px solid #ddd4c5;
+
+  }
+
+  main {
+
+    padding: 32px 24px;
+
+  }
+
+  h1 {
+
+    font-size: 40px;
+
+  }
+
+  .brand {
+
+    margin: 24px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    grid-column: auto;
+
+  }
+
+  .brand-name {
+
+    font-size: 36px;
+
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="reader-layout">
+
+<main>
+
+<h1>Efekty finansowe działalności przedsiębiorstwa</h1>
+<div class="reader-subtitle">CTXBOOK – text easy to understand</div>
+
+
+
+    <figure class="reader-hero-image">
+      <img src="https://images.pexels.com/photos/35345645/pexels-photo-35345645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="A stack of Polish Zloty banknotes on an office table with a calculator and notebook.">
+      <figcaption>A stack of Polish Zloty banknotes on an office table with a calculator and notebook.
+Pexels · Jakub Zerdzicki</figcaption>
+    </figure>
+  
+
+
+      <section>
+
+        
+
+        <h2>Czym są efekty finansowe działalności przedsiębiorstwa?</h2>
+
+        
+        <p class="reader-paragraph">
+          Każde przedsiębiorstwo działa, aby osiągać <span class="term" data-term="cele_gospodarcze_i_spoleczne">cele gospodarcze i społeczne</span>, a najważniejszym celem większości jest zysk.
+        </p>
+      
+        <p class="reader-paragraph">
+          Efekty finansowe pokazują: ile firma zarabia, jakie ponosi <span class="term" data-term="koszty">wydatki</span>, czy ma zysk lub stratę, czy działalność jest opłacalna.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Co to są przychody?</h2>
+
+        
+        <p class="reader-paragraph">
+          Przychód to wszystkie pieniądze i wartości, które przynoszą firmie korzyść ekonomiczną.
+        </p>
+      
+        <p class="reader-paragraph">
+          Główne <span class="term" data-term="przychody">przychody</span> to: sprzedaż dóbr i usług, <span class="term" data-term="przychody">przychody</span> finansowe (np. odsetki), oraz pozostałe <span class="term" data-term="przychody">przychody</span> operacyjne (dotacje, odszkodowania).
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Co to są koszty i ich rodzaje?</h2>
+
+        
+        <p class="reader-paragraph">
+          Koszty to <span class="term" data-term="koszty">wydatki</span> firmy potrzebne do działania i zarabiania.
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="koszty">Koszty</span> dzielą się na stałe (np. czynsz, pensje) oraz zmienne (np. surowce, energia).
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="koszty_stale">Koszty stałe</span> ponosi się nawet bez sprzedaży, zmienne rosną wraz z produkcją.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Koszty wg rodzaju działalności</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="koszty">Koszty</span> obejmują zużycie materiałów, usługi obce, podatki, wynagrodzenia, składki ZUS, amortyzację.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Jak obliczamy koszty?</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="koszt_calkowity">Koszt całkowity</span> to suma kosztów stałych i zmiennych.
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="koszt_jednostkowy">Koszt jednostkowy</span> to koszt całkowity podzielony przez liczbę wyprodukowanych produktów.
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="koszt_jednostkowy">Koszt jednostkowy</span> pomaga ustalić cenę produktu.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Co to jest wynik finansowy?</h2>
+
+        
+        <p class="reader-paragraph">
+          Wynik finansowy to różnica między przychodami a kosztami.
+        </p>
+      
+        <p class="reader-paragraph">
+          Jeśli <span class="term" data-term="przychody">przychody</span> są większe, firma ma zysk, jeśli koszty są większe — stratę.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Rodzaje zysku</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="zysk_brutto">Zysk brutto</span> to zysk przed zapłaceniem podatku.
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="zysk_netto">Zysk netto</span> to zysk po zapłaceniu podatków i innych opłat.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Co zawiera plan finansowy?</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="plan_finansowy_2">Plan finansowy</span> to część biznesplanu z przewidywanymi przychodami, kosztami i inwestycjami.
+        </p>
+      
+        <p class="reader-paragraph">
+          Pomaga ocenić, czy firma będzie opłacalna i kiedy zwrócą się inwestycje.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Przykład planu finansowego food trucka</h2>
+
+        
+        <p class="reader-paragraph">
+          Inwestycja: 100 000 zł na samochód i wyposażenie.
+        </p>
+      
+        <p class="reader-paragraph">
+          Miesięczne <span class="term" data-term="przychody">przychody</span>: 25 950 zł ze sprzedaży jedzenia i napojów.
+        </p>
+      
+        <p class="reader-paragraph">
+          Miesięczne <span class="term" data-term="koszty">koszty</span>: 21 045 zł stałe i zmienne.
+        </p>
+      
+        <p class="reader-paragraph">
+          Szacowany <span class="term" data-term="zysk">zysk</span> miesięczny: około 4905 zł.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Księga przychodów i rozchodów i sprawozdania finansowe</h2>
+
+        
+        <p class="reader-paragraph">
+          Małe firmy używają uproszczonej księgowości (<span class="term" data-term="kpir">KPiR</span>) do rejestrowania przychodów i kosztów.
+        </p>
+      
+        <p class="reader-paragraph">
+          Większe firmy sporządzają sprawozdania finansowe pokazujące sytuację finansową.
+        </p>
+      
+        <p class="reader-paragraph">
+          Sprawozdanie zawiera <span class="term" data-term="bilans">bilans</span>, rachunek zysków i strat, oraz rachunek przepływów pieniężnych.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Próg rentowności i rentowność</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="prog_rentownosci">Próg rentowności</span> to moment, gdy przychody pokrywają koszty — firma nie traci ani nie zarabia.
+        </p>
+      
+        <p class="reader-paragraph">
+          Poniżej tego progu firma ma <span class="term" data-term="strate">stratę</span>, powyżej — zysk.
+        </p>
+      
+        <p class="reader-paragraph">
+          Rentowność to zdolność firmy do osiągania zysku.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Podstawowe pojęcia bilansu</h2>
+
+        
+        <p class="reader-paragraph">
+          Bilans dzieli majątek firmy <span class="term" data-term="aktywa_i_zrodla_jego_finansowania_pasywa">(aktywa) i źródła jego finansowania (pasywa).</span>
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="aktywa">Aktywa</span> trwałe to budynki, maszyny; obrotowe to zapasy, pieniądze.
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="aktywa_i_zrodla_jego_finansowania_pasywa">Pasywa</span> to kapitał własny i kapitał obcy (kredyty, zobowiązania).
+        </p>
+      
+
+        
+
+      </section>
+    
+
+</main>
+
+
+<aside id="sidePanel">
+
+  <div class="side-controls">
+
+    <button onclick="changeFontSize(-1)" title="Smaller main text">A−</button>
+
+    <button onclick="changeFontSize(1)" title="Larger main text">A+</button>
+
+    <button onclick="changeSidebarFontSize(-1)" title="Smaller explanations">🅰−</button>
+
+    <button onclick="changeSidebarFontSize(1)" title="Larger explanations">🅰+</button>
+
+    <button onclick="changeSidebar(-40)" title="Narrow panel">◁</button>
+
+    <button onclick="changeSidebar(40)" title="Wider panel">▷</button>
+
+  </div>
+
+  <div class="term-box">
+    <h3>Wyjaśnienia</h3>
+    <p>Kliknij podkreślone pojęcie w tekście.</p>
+  </div>
+
+</aside>
+
+</div>
+
+<div class="brand">
+
+  <div class="brand-logo">
+    <span class="brand-word">
+      <span class="brand-name">contextero</span>
+      <span class="brand-format">CTXBOOK FORMAT</span>
+    </span>
+  </div>
+
+  <div class="brand-meta">
+    Powered by <a class="brand-link" href="https://contextero.com" target="_blank">contextero.com</a>
+  </div>
+
+</div>
+
+<script>
+
+
+
+function changeFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebar(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-width')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-width',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebarFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  const divider = document.getElementById('resizeDivider');
+
+  if (!divider) return;
+
+  let resizing = false;
+
+  divider.addEventListener('mousedown', () => {
+
+    resizing = true;
+
+    document.body.style.cursor = 'col-resize';
+
+  });
+
+  window.addEventListener('mouseup', () => {
+
+    resizing = false;
+
+    document.body.style.cursor = '';
+
+  });
+
+  window.addEventListener('mousemove', (event) => {
+
+    if (!resizing) return;
+
+    const rawWidth = window.innerWidth - event.clientX;
+
+const width = Math.max(
+  260,
+  Math.min(rawWidth, window.innerWidth * 0.5)
+);
+
+    document.documentElement.style.setProperty(
+      '--ctx-sidebar-width',
+      width + 'px'
+    );
+
+  });
+
+});
+
+
+
+function changeFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebar(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-width')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-width',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebarFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebar(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-width')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-width',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebarFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+const TERMS = {"efekty_finansowe":{"title":"Efekty finansowe","aliases":["efekty finansowe działalności przedsiębiorstwa"],"explanation":"Pokazują zarobki, wydatki, zysk lub stratę firmy oraz opłacalność działalności.","why":"To podstawowa informacja o tym, czy firma zarabia i działa efektywnie.","image":{"url":"https://pixabay.com/get/g47c65521c77e4872cf1247a7fcfcc6908dff87bf6605d57e2e206ae12470fbf1ceb52ba65644f5205a0cbc468091de3c_640.jpg","originalUrl":"https://pixabay.com/photos/euro-coin-currency-europe-money-400249/","label":"efekty finansowe business finance","caption":"efekty finansowe business finance","source":"Pixabay · stux","rawTags":"euro, coin, currency, europe, money, wealth, business, finance, profit, revenue, bank, deposit, incentive, investments, euro, euro, euro, euro, euro, coin, coin","score":12}},"przychod":{"title":"Przychód","aliases":["przychody przedsiębiorstwa"],"explanation":"Wszystkie wpływy pieniężne i rzeczowe przynoszące korzyść ekonomiczną firmie.","why":"To pieniądze i wartości, które firma otrzymuje ze swojej działalności.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Median_annual_income_in_the_EU_In_2020.png/1280px-Median_annual_income_in_the_EU_In_2020.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/b/b6/Median_annual_income_in_the_EU_In_2020.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"Median annual income in the EU In 2020","source":"Wikimedia Commons · CC BY 4.0 · Maps.interlude","fileTitle":"Median annual income in the EU In 2020.png","query":"Przychód money income","author":""}},"koszty_stale":{"title":"Koszty stałe","aliases":["koszty stałe"],"explanation":"Koszty, które firma musi ponosić bez względu na wielkość produkcji lub sprzedaży.","why":"Pokazują wydatki, które nie zmieniają się wraz z działaniem firmy.","image":{"url":"https://pixabay.com/get/gfd49815d2bd66f0958c53a871bb5f51ccebd6401846c46b5571501217120f1d3af5c3ee077be8212be90e79fe8d1bfd61b29162143e98d32b99e945bd99e0acb_640.jpg","originalUrl":"https://pixabay.com/photos/coins-banknotes-money-currency-1726618/","label":"koszty stałe rent payment","caption":"koszty stałe rent payment","source":"Pixabay · stevepb","rawTags":"coins, banknotes, money, currency, finance, cash, business, economics, banking, bank, wealth, earnings, capital, savings, payment, investment, economy, financial, profit, earn, invest, accounting, save, funds, income, commerce, assets, costs, expense, thrift, money, money, money, money, money, bank","score":12}},"koszty_zmienne":{"title":"Koszty zmienne","aliases":["koszty zmienne"],"explanation":"Koszty rosnące lub malejące w zależności od produkcji lub sprzedaży.","why":"Pomagają obliczyć, ile kosztuje produkcja lub sprzedaż.","image":{"url":"https://pixabay.com/get/g77046a3bd59a061a709e791457b071fc4f94498757067f0ae14726e7cfcc5b7ddb727cb7beea2cfa5c9e0f875492fadc55a201b34b668362583298a0dc8237a9_640.jpg","originalUrl":"https://pixabay.com/photos/receipts-tax-office-bank-notes-4542292/","label":"koszty zmienne production expenses","caption":"koszty zmienne production expenses","source":"Pixabay · Panals","rawTags":"receipts, tax office, bank notes, money, expenses, evidence, irs, notes, costs, receipts, receipts, evidence, evidence, evidence, evidence, evidence, irs, irs","score":12}},"koszt_calkowity":{"title":"Koszt całkowity","aliases":["koszt całkowity"],"explanation":"Suma kosztów stałych i zmiennych firmy.","why":"Pokazuje całkowite wydatki potrzebne do działania firmy.","image":{"url":"https://pixabay.com/get/g4ac655229fed5c3cdb19a53e73b5ea8b64a864b6ee6b2ea654401a6546b63f736b4b8b093074f457a2113a5c240835e72fad9ad630a05daa30bc3055b5c79a91_640.jpg","originalUrl":"https://pixabay.com/photos/heating-costs-energy-saving-4164538/","label":"koszt całkowity cost calculation","caption":"koszt całkowity cost calculation","source":"Pixabay · geralt","rawTags":"heating costs, energy saving, temperature controller, cost, thermostat, energy crisis, climate control, controller, heating, save up, energy, warmth, energy saving, energy saving, energy saving, energy saving, energy saving, cost, cost, cost, thermostat, thermostat, energy crisis, energy crisis, energy crisis, energy crisis, energy crisis, heating, heating, heating","score":12}},"koszt_jednostkowy":{"title":"Koszt jednostkowy","aliases":["koszt jednostkowy"],"explanation":"Koszt całkowity podzielony przez liczbę wyprodukowanych produktów.","why":"Pomaga określić cenę za pojedynczy produkt.","image":{"url":"https://pixabay.com/get/g9f291568af1453a20843c06ff05f7a2e9ebcec52d29d364d8f719b393fabf43c7f86569d7d5fb63c8007a22070a00de0c7fdb0f7507bc5b73446fa4842ca1d19_640.jpg","originalUrl":"https://pixabay.com/photos/heating-costs-energy-saving-4164538/","label":"koszt jednostkowy product cost calculation","caption":"koszt jednostkowy product cost calculation","source":"Pixabay · geralt","rawTags":"heating costs, energy saving, temperature controller, cost, thermostat, energy crisis, climate control, controller, heating, save up, energy, warmth, energy saving, energy saving, energy saving, energy saving, energy saving, cost, cost, cost, thermostat, thermostat, energy crisis, energy crisis, energy crisis, energy crisis, energy crisis, heating, heating, heating","score":15}},"wynik_finansowy":{"title":"Wynik finansowy","aliases":["wynik finansowy przedsiębiorstwa"],"explanation":"Różnica między przychodami a kosztami firmy.","why":"Pokazuje, czy firma zarabia (zysk) lub traci (strata).","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Financial_Statements_2020.pdf/page1-960px-Financial_Statements_2020.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/4/46/Financial_Statements_2020.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"Financial Statements Wikimedia Switzerland for 2020","source":"Wikimedia Commons · CC BY-SA 4.0 · Bagawathram Maheswaran","fileTitle":"Financial Statements 2020.pdf","query":"Wynik finansowy financial result","author":""}},"zysk_brutto":{"title":"Zysk brutto","aliases":["zysk brutto"],"explanation":"Zysk przed zapłaceniem podatku dochodowego.","why":"Pokazuje wynik finansowy firmy przed opodatkowaniem.","image":{"url":"https://pixabay.com/get/g847a4b11dc97491acadab66cfca503c3a40ff124c6ef0ad5e0e023287eed137dcd5d68777f1ec99926fd33a9bba1dfe3_640.jpg","originalUrl":"https://pixabay.com/photos/a380-span-aileron-wing-gross-66217/","label":"zysk brutto gross profit","caption":"zysk brutto gross profit","source":"Pixabay · xuuxuu","rawTags":"a380, span, aileron, wing, gross, plane, airbus, maneuver, motors, jet, heaven, blue, white, a380, a380, a380, airbus, airbus, airbus, airbus, airbus","score":12}},"zysk_netto":{"title":"Zysk netto","aliases":["zysk netto"],"explanation":"Zysk po zapłaceniu podatków i innych opłat.","why":"To rzeczywisty zysk, który zostaje w firmie.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/7/78/Datar_Mathews_Real_Option_Method_Wikipedia_Fig_2A_Net_Profit_Present_Value_Distribution.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/7/78/Datar_Mathews_Real_Option_Method_Wikipedia_Fig_2A_Net_Profit_Present_Value_Distribution.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"DM Method - Net Profit Present Value Distribution","source":"Wikimedia Commons · CC BY-SA 3.0 · ScottMathews","fileTitle":"Datar Mathews Real Option Method Wikipedia Fig 2A Net Profit Present Value Distribution.jpg","query":"Zysk netto net profit","author":""}},"plan_finansowy":{"title":"Plan finansowy","aliases":["plan finansowy działalności"],"explanation":"Dokument z przewidywanymi przychodami, kosztami i inwestycjami firmy.","why":"Pomaga ocenić opłacalność i efektywność działalności przed rozpoczęciem działania.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/%28PL%29_Wikimedia_Foundation_draft_Annual_Plan_2024-2025.pdf/page1-1280px-%28PL%29_Wikimedia_Foundation_draft_Annual_Plan_2024-2025.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/c/c2/%28PL%29_Wikimedia_Foundation_draft_Annual_Plan_2024-2025.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"These slides contain information about the Wikimedia Foundation's draft Annual Plan 2024-2025 in Polish language","source":"Wikimedia Commons · CC BY-SA 4.0 · AAkhmedova (WMF), NSzafran-WMF","fileTitle":"(PL) Wikimedia Foundation draft Annual Plan 2024-2025.pdf","query":"Plan finansowy business plan","author":""}},"ksiega_przychodow_i_rozchodow":{"title":"Księga przychodów i rozchodów (KPiR)","aliases":["księga przychodów i rozchodów"],"explanation":"Uproszczona księgowość dla małych firm, rejestrująca przychody i koszty.","why":"Ułatwia rozliczanie podatków i kontrolę finansów.","image":{"url":"https://pixabay.com/get/g4a45fb9b8ae9e5dbb99dcc17b917aeee1a89fbdc478e3cd39d5f30be77c788ec312edfc96b315dad686afcf30ef99e1c864f45a39b5aa17b6b930ec0464427dd_640.jpg","originalUrl":"https://pixabay.com/photos/monetary-denominations-schedule-5073834/","label":"księga przychodów rozchodów kpir accounting","caption":"księga przychodów rozchodów kpir accounting","source":"Pixabay · ds_30","rawTags":"monetary, denominations, schedule, money, businesses, finances, currencies, paper, notes, cash, banknotes, financial, euro, banking, backgrounds, balance, management, objects, date, wealth, time, concepts, accounting, tax, tax, tax, tax, tax, tax","score":15}},"sprawozdanie_finansowe":{"title":"Sprawozdanie finansowe","aliases":["sprawozdanie finansowe"],"explanation":"Dokument pokazujący sytuację finansową firmy, zawierający bilans i rachunki.","why":"Zawiera ważne informacje dla zarządu i inwestorów.","image":{"url":"https://pixabay.com/get/gf60c308186f88372d6070593885712e760900de512b7600cc04f09a1ef14886c380975511dbfeb099c299e03aae9a390_640.jpg","originalUrl":"https://pixabay.com/photos/fireworks-heaven-sylvester-879462/","label":"sprawozdanie finansowe financial statement","caption":"sprawozdanie finansowe financial statement","source":"Pixabay · nidan","rawTags":"fireworks, heaven, sylvester, new year's eve, shining, missiles, pyrotechnics, beautiful, annual financial statements, fireworks, fireworks, fireworks, fireworks, fireworks","score":12}},"prog_rentownosci":{"title":"Próg rentowności","aliases":["próg rentowności","próg opłacalności"],"explanation":"Punkt, w którym przychody firmy są równe kosztom, firma nie traci ani nie zarabia.","why":"Pokazuje minimalną sprzedaż potrzebną do pokrycia kosztów.","image":{"originalUrl":"https://pixabay.com/photos/old-point-loma-lighthouse-lighthouse-5454155/","label":"próg rentowności break-even point","caption":"próg rentowności break-even point","source":"Pixabay · iulian_ursache","rawTags":"old point loma lighthouse, lighthouse, building, structure, historic, historical, landmark, fence, nature, grass, sunny, san diego, california","score":12}},"bilans":{"title":"Bilans","aliases":["bilans"],"explanation":"Dokument przedstawiający majątek firmy (aktywa) oraz źródła finansowania (pasywa).","why":"Pomaga zobaczyć, z czego firma korzysta i jak to finansuje.","image":{"url":"https://images.pexels.com/photos/6779214/pexels-photo-6779214.jpeg?auto=compress&cs=tinysrgb&h=650&w=940","originalUrl":"https://www.pexels.com/photo/businessman-person-space-laptop-6779214/","label":"Business summary sheet with a calculator on a desk for financial analysis.","source":"Business summary sheet with a calculator on a desk for financial analysis.\nPexels · Artem Podrez","caption":"Business summary sheet with a calculator on a desk for financial analysis.\nPexels · Artem Podrez"}},"gospodarcze":{"title":"Gospodarcze","aliases":["Gospodarcze","ekonomiczne","związane z gospodarką"],"explanation":"Pojęcie 'gospodarcze' odnosi się do wszystkiego, co związane jest z gospodarką, czyli działalnością produkcyjną, handlową i usługową, mającą na celu wytwarzanie dóbr i usług oraz wymianę wartości.","why":"W kontekście efektywności finansowej przedsiębiorstwa pojęcie 'gospodarcze' jest ważne, ponieważ określa cele działalności przedsiębiorstwa w aspekcie ekonomicznym, takich jak osiąganie zysków i rozwój na rynku.","image":{"label":"działalność gospodarcza przedsiębiorstwa","source":"Obraz do uzupełnienia"}},"cele_gospodarcze_i_spoleczne":{"title":"Cele gospodarcze i społeczne","aliases":["Cele gospodarcze i społeczne","cele przedsiębiorstwa","cele biznesowe i społeczne","zadania przedsiębiorstwa"],"explanation":"Cele gospodarcze i społeczne to zamierzenia, które przedsiębiorstwo chce osiągnąć w swojej działalności. Cele gospodarcze dotyczą przede wszystkim zysku, wzrostu i rozwoju firmy, natomiast cele społeczne obejmują wpływ na otoczenie, takie jak tworzenie miejsc pracy czy działania na rzecz społeczności.","why":"W tekście o efektach finansowych cele gospodarcze i społeczne są ważne, ponieważ wyjaśniają, dlaczego firma działa – nie tylko dla zysku, ale także dla korzyści społecznych, co wpływa na podejmowane decyzje i ocenę efektów finansowych.","image":{"url":"https://images.pexels.com/photos/14060483/pexels-photo-14060483.jpeg?auto=compress&cs=tinysrgb&h=650&w=940","originalUrl":"https://www.pexels.com/photo/aerial-view-of-the-distribution-center-drone-photography-of-the-industrial-logistic-zone-14060483/","label":"Aerial photograph of an expansive industrial complex surrounded by lush countryside and winding roads.","source":"Aerial photograph of an expansive industrial complex surrounded by lush countryside and winding roads.\nPexels · Marcin Jozwiak","caption":"Aerial photograph of an expansive industrial complex surrounded by lush countryside and winding roads.\nPexels · Marcin Jozwiak"}},"zysk":{"title":"Zysk","aliases":["Zysk","Dochód","Zysk netto","Dochód netto"],"explanation":"Zysk to różnica między przychodami a kosztami przedsiębiorstwa, czyli to, co zostaje firmie po pokryciu wszystkich wydatków.","why":"Zysk jest najważniejszym celem działalności większości przedsiębiorstw, ponieważ umożliwia dalszy rozwój, inwestycje i przetrwanie na rynku.","image":{"url":"https://images.pexels.com/photos/7172856/pexels-photo-7172856.jpeg?auto=compress&cs=tinysrgb&h=650&w=940","originalUrl":"https://www.pexels.com/photo/a-person-hand-with-the-thumbs-up-sign-7172856/","label":"A hand giving thumbs up next to profit chart on a whiteboard, indicating success.","source":"A hand giving thumbs up next to profit chart on a whiteboard, indicating success.\nPexels · Nataliya Vaitkevich","caption":"A hand giving thumbs up next to profit chart on a whiteboard, indicating success.\nPexels · Nataliya Vaitkevich"}},"przychody":{"title":"Przychody","aliases":["Przychody","dochody","wpływy","przychody przedsiębiorstwa"],"explanation":"Przychody to łączna wartość środków pieniężnych otrzymanych przez przedsiębiorstwo ze sprzedaży dóbr i usług oraz innych źródeł, takich jak odsetki czy dotacje.","why":"Przychody są podstawowym wskaźnikiem określającym efekty finansowe działalności przedsiębiorstwa, gdyż świadczą o zdolności firmy do generowania środków niezbędnych do pokrycia kosztów i osiągania zysku.","image":{"url":"https://images.pexels.com/photos/3570239/pexels-photo-3570239.jpeg?auto=compress&cs=tinysrgb&h=650&w=940","originalUrl":"https://www.pexels.com/photo/payment-terminal-in-hands-3570239/","label":"A close-up of a hand using a payment terminal with currency notes and a money box in view.","source":"A close-up of a hand using a payment terminal with currency notes and a money box in view.\nPexels · Hook Tell","caption":"A close-up of a hand using a payment terminal with currency notes and a money box in view.\nPexels · Hook Tell"}},"koszty":{"title":"Koszty","aliases":["Koszty","wydatki","nakłady finansowe","koszt"],"explanation":"Koszty to wszystkie wydatki ponoszone przez przedsiębiorstwo, które są niezbędne do prowadzenia działalności i osiągania przychodów.","why":"Koszty są kluczowe w analizie efektów finansowych, ponieważ wpływają bezpośrednio na zysk i rentowność firmy.","image":{"label":"koszty firmy wykres diagram","source":"Obraz do uzupełnienia"}},"strate":{"title":"Strata","aliases":["Strata","stratę","Ujemny wynik finansowy","Negatywny wynik finansowy"],"explanation":"Strata to sytuacja, gdy koszty działalności przedsiębiorstwa przewyższają jego przychody, co oznacza, że firma ponosi finansową niedogodność.","why":"Strata jest ważna, ponieważ pokazuje, że przedsiębiorstwo nie zarabia wystarczająco na pokrycie swoich wydatków, co może wpływać na jego dalszą działalność i podejmowanie decyzji finansowych.","image":{"label":"financial loss business chart","source":"Obraz do uzupełnienia"}},"plan_finansowy_2":{"title":"Plan finansowy","aliases":["Plan finansowy","budżet przedsiębiorstwa","plan budżetowy","prognoza finansowa"],"explanation":"Plan finansowy to dokument, który zawiera przewidywania dotyczące przychodów, kosztów oraz inwestycji przedsiębiorstwa na określony okres. Pozwala na kontrolowanie i zarządzanie finansami firmy.","why":"Jest ważny, ponieważ pomaga przedsiębiorstwu planować przyszłe działania, monitorować efekty finansowe i uniknąć problemów z płynnością finansową.","image":{"url":"https://images.pexels.com/photos/6863253/pexels-photo-6863253.jpeg?auto=compress&cs=tinysrgb&h=650&w=940","originalUrl":"https://www.pexels.com/photo/notebook-and-pencils-on-black-surface-6863253/","label":"Flat lay of a colorful calculator, notebook, and pencils on a black background with a percent sign.","source":"Flat lay of a colorful calculator, notebook, and pencils on a black background with a percent sign.\nPexels · Nataliya Vaitkevich","caption":"Flat lay of a colorful calculator, notebook, and pencils on a black background with a percent sign.\nPexels · Nataliya Vaitkevich"}},"biznesplanu":{"title":"Biznesplan","aliases":["Biznesplan","biznesplanu","plan biznesowy","plan działalności","strategia biznesowa"],"explanation":"Biznesplan to dokument opisujący cele firmy, strategię działania oraz sposób realizacji tych celów, w tym przewidywane przychody, koszty i inwestycje.","why":"W kontekście efektów finansowych działalności przedsiębiorstwa biznesplan jest ważny, ponieważ zawiera plan finansowy, który pozwala przewidzieć i kontrolować wyniki finansowe firmy.","image":{"label":"biznesplan dokument wykresy finansowe","source":"Obraz do uzupełnienia"}},"kpir":{"title":"KPiR","aliases":["KPiR","Księga przychodów i rozchodów","Uproszczona księgowość"],"explanation":"KPiR to uproszczony sposób prowadzenia księgowości, który rejestruje wszystkie przychody i koszty firmy. Jest stosowany głównie przez małe przedsiębiorstwa, aby łatwiej i przejrzyściej kontrolować finanse.","why":"W tekście KPiR jest ważna, bo pokazuje, jak małe firmy mogą śledzić swoje efekty finansowe bez skomplikowanych systemów księgowych, co ułatwia ocenę rentowności i planowanie działalności.","image":{"label":"księga przychodów i rozchodów","source":"Obraz do uzupełnienia"}},"aktywa":{"title":"Aktywa","aliases":["Aktywa","Majątek firmy","Zasoby przedsiębiorstwa"],"explanation":"Aktywa to wszystkie zasoby i mienie, które posiada przedsiębiorstwo i które mają wartość ekonomiczną. Mogą to być np. środki trwałe, zapasy, należności czy środki pieniężne.","why":"Aktywa są ważne, ponieważ pokazują, czym dysponuje firma i jakie zasoby wykorzystuje do prowadzenia działalności, co jest kluczowe przy ocenie jej efektywności finansowej.","image":{"label":"aktywa przedsiębiorstwa bilans zasoby majątek","source":"Obraz do uzupełnienia"}},"aktywa_i_zrodla_jego_finansowania_pasywa":{"title":"Aktywa i pasywa","aliases":["Aktywa i pasywa","(aktywa) i źródła jego finansowania (pasywa).","majątek i źródła finansowania","aktywa i źródła finansowania","pasywa"],"explanation":"Aktywa to wszystkie zasoby majątkowe posiadane przez przedsiębiorstwo, natomiast pasywa to źródła finansowania tych zasobów, czyli skąd pochodzi kapitał na ich nabycie (np. kapitał własny czy zobowiązania).","why":"Zrozumienie różnicy między aktywami a pasywami jest kluczowe do analizy efektywności finansowej firmy, ponieważ pozwala ocenić strukturę majątku oraz sposób jego finansowania.","image":{"label":"bilans aktywa i pasywa przedsiębiorstwo","source":"Obraz do uzupełnienia"}}};
+
+document.querySelectorAll('.term').forEach(el => {
+  el.addEventListener('click', () => {
+    const key = el.dataset.term;
+    const term = TERMS[key];
+
+    if (!term) return;
+
+ document.getElementById("sidePanel").innerHTML =
+
+  '<div class="side-controls">' +
+
+    '<button onclick="changeFontSize(-1)" title="Smaller main text">A−</button>' +
+
+    '<button onclick="changeFontSize(1)" title="Larger main text">A+</button>' +
+
+    '<button onclick="changeSidebarFontSize(-1)" title="Smaller explanations">🅰−</button>' +
+
+    '<button onclick="changeSidebarFontSize(1)" title="Larger explanations">🅰+</button>' +
+
+    '<button onclick="changeSidebar(-40)" title="Narrow panel">◁</button>' +
+
+    '<button onclick="changeSidebar(40)" title="Wider panel">▷</button>' +
+
+  '</div>' +
+  '<div class="term-box">' +
+
+    '<h3>' + term.title + '</h3>' +
+
+    (
+
+      term.image && term.image.url
+
+      ? '<div>' +
+
+          '<img src="' + term.image.url + '">' +
+
+          '<div class="img-meta">' + (term.image.source || '') + '</div>' +
+
+        '</div>'
+
+      : ''
+
+    ) +
+
+    '<p>' + term.explanation + '</p>' +
+
+    '<p><em>' + (term.why || '') + '</em></p>' +
+
+  '</div>';
+
+});
+});
+
+document.addEventListener('click', (event) => {
+
+  const button = event.target.closest('button');
+
+  if (button) {
+
+    button.style.transform = 'translateY(1px)';
+
+    button.style.opacity = '0.82';
+
+    setTimeout(() => {
+
+      button.style.transform = '';
+
+      button.style.opacity = '';
+
+    }, 140);
+
+  }
+
+  const img = event.target.closest('.term-box img');
+
+  if (!img) return;
+
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.inset = '0';
+  overlay.style.background = 'rgba(0,0,0,.82)';
+  overlay.style.display = 'grid';
+  overlay.style.placeItems = 'center';
+  overlay.style.zIndex = '9999';
+  overlay.style.cursor = 'zoom-out';
+
+  const big = document.createElement('img');
+  big.src = img.src;
+  big.style.maxWidth = '92vw';
+  big.style.maxHeight = '92vh';
+  big.style.objectFit = 'contain';
+  big.style.borderRadius = '14px';
+  big.style.background = '#fff';
+
+  overlay.appendChild(big);
+  overlay.addEventListener('click', () => overlay.remove());
+  document.body.appendChild(overlay);
+});
+</script>
+
+</body>
+</html>
