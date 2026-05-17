@@ -55,7 +55,7 @@
     }
 
     .content {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 70px 24px;
     }
@@ -84,11 +84,12 @@
 
     .lesson-card {
       background: white;
-      border-radius: 20px;
+      border-radius: 22px;
       padding: 34px;
       text-align: left;
       box-shadow: 0 10px 30px rgba(0,0,0,0.06);
       transition: transform 0.18s ease, box-shadow 0.18s ease;
+      border: 1px solid #e5e7eb;
     }
 
     .lesson-card:hover {
@@ -113,6 +114,7 @@
       margin: 0 0 18px;
       font-size: 1.6rem;
       line-height: 1.3;
+      color: #0f172a;
     }
 
     .lesson-card p {
@@ -152,6 +154,11 @@
     }
 
     @media (max-width: 700px) {
+
+      header {
+        padding: 70px 20px 50px;
+      }
+
       h1 {
         font-size: 2.8rem;
       }
@@ -163,6 +170,10 @@
       .lesson-card {
         padding: 28px;
       }
+
+      .section-title h2 {
+        font-size: 1.7rem;
+      }
     }
   </style>
 </head>
@@ -170,6 +181,7 @@
 <body>
 
 <header>
+
   <h1>QBIZ</h1>
 
   <div class="tagline">
@@ -177,62 +189,98 @@
   </div>
 
   <div class="hero-text">
-    Generate business plans, analyze markets, create proposals, optimize communication,
-    and support strategic decisions. QBIZ combines practical business knowledge with
-    modern AI-powered workflows.
+    Generate business plans, analyze markets, optimize communication,
+    and explore modern business education materials prepared in interactive HTML format.
   </div>
+
 </header>
 
 <main class="content">
 
   <section class="section-title">
+
     <h2>Business Lessons</h2>
 
     <p>
-      Interactive business learning materials prepared in HTML format.
+      Interactive educational materials for business and entrepreneurship.
     </p>
+
   </section>
 
   <section class="lessons-grid">
 
     <article class="lesson-card">
+
       <div class="lesson-label">
         Lesson 01
       </div>
 
-      <h3>Koncepcja biznesu</h3>
+      <h3>Efekty finansowe działalności przedsiębiorstwa</h3>
 
       <p>
-        Learn how to build and evaluate a business concept, define value propositions,
-        identify customers, and shape the foundations of a successful venture.
+        Learn about revenues, costs, profit, loss,
+        financial indicators, and business profitability.
       </p>
 
-      <a class="lesson-button" href="books/koncepcja-biznesu.html">
+      <a class="lesson-button"
+         href="books/efekty-finansowe-dzialalnosci-przedsiebiorstwa.html">
+
         Open Lesson
+
       </a>
+
     </article>
 
     <article class="lesson-card">
+
       <div class="lesson-label">
         Lesson 02
       </div>
 
-      <h3>Analiza otoczenia</h3>
+      <h3>Etyka w biznesie</h3>
 
       <p>
-        Understand market environment analysis, competitors, trends, opportunities,
-        threats, and the external factors influencing business decisions.
+        Explore ethical business principles,
+        fair competition, responsibility,
+        anti-corruption practices, and professional ethics.
       </p>
 
-      <a class="lesson-button" href="books/analiza-otoczenia.html">
+      <a class="lesson-button"
+         href="books/etyka-w-biznesie.html">
+
         Open Lesson
+
       </a>
+
+    </article>
+
+    <article class="lesson-card">
+
+      <div class="lesson-label">
+        Lesson 03
+      </div>
+
+      <h3>Społeczna odpowiedzialność przedsiębiorstw</h3>
+
+      <p>
+        Understand CSR, sustainable development,
+        environmental responsibility,
+        and socially responsible business management.
+      </p>
+
+      <a class="lesson-button"
+         href="books/spoleczna-odpowiedzialnosc-przedsiebiorstw.html">
+
+        Open Lesson
+
+      </a>
+
     </article>
 
   </section>
 
   <div class="coming-soon">
-    More business tools and educational modules coming soon.
+    More AI business tools and interactive lessons coming soon.
   </div>
 
 </main>
