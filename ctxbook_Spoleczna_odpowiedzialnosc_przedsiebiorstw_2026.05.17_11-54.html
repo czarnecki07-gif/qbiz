@@ -1,0 +1,1091 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Społeczna odpowiedzialność przedsiębiorstw</title>
+
+<style>
+
+:root {
+
+  --ctx-font-size: 20px;
+
+  --ctx-sidebar-width: 360px;
+
+  --ctx-sidebar-font-size: 16px;
+
+}
+
+body {
+
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  background: #f6f2ea;
+
+  color: #171411;
+
+  min-height: 100vh;
+
+}
+
+.reader-layout {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  width: 100%;
+
+  gap: 0;
+
+}
+
+main {
+
+  padding: 54px 64px 90px;
+
+  width: 100%;
+
+  max-width: 860px;
+
+}
+
+.resize-divider {
+
+  width: 10px;
+
+  cursor: col-resize;
+
+  background: transparent;
+
+  position: relative;
+
+}
+
+.resize-divider::before {
+
+  content: "◀ ▶";
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-size: 10px;
+
+  letter-spacing: -2px;
+
+  color: #9f9688;
+
+  font-family: Arial, sans-serif;
+
+}
+
+aside {
+
+  width: var(--ctx-sidebar-width);
+
+  min-width: var(--ctx-sidebar-width);
+
+  height: 100vh;
+
+  position: sticky;
+
+  top: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  border-left: 1px solid #ddd4c5;
+
+  background: #fbf8f3;
+
+  padding: 0 28px 28px;
+
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+}
+
+h1 {
+
+  margin: 0 0 10px;
+
+  font-size: 54px;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.04em;
+
+  font-weight: 800;
+
+}
+
+h2 {
+
+  margin: 46px 0 18px;
+
+  font-size: 30px;
+
+  line-height: 1.18;
+
+  font-weight: 800;
+
+}
+
+.reader-subtitle {
+
+  margin: 0 0 42px;
+
+  color: #6f675d;
+
+  font-size: 20px;
+
+  line-height: 1.4;
+
+}
+
+.reader-paragraph {
+
+  font-size: var(--ctx-font-size);
+
+  line-height: 1.78;
+
+  margin: 0 0 28px;
+
+  white-space: pre-wrap;
+
+}
+
+.reader-hero-image,
+.reader-section-image {
+
+  margin: 24px 0 34px;
+
+}
+
+.reader-hero-image img,
+.reader-section-image img {
+
+  width: 100%;
+
+  max-height: 420px;
+
+  object-fit: contain;
+
+  border-radius: 18px;
+
+  background: #f0ece3;
+
+  box-shadow: 0 14px 34px rgba(30, 25, 18, 0.08);
+
+}
+
+.reader-section-image img {
+
+  max-height: 320px;
+
+}
+
+.reader-hero-image figcaption,
+.reader-section-image figcaption {
+
+  margin-top: 8px;
+
+  color: #8a8277;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+}
+
+aside::before {
+
+  content: "Wyjaśnienia";
+
+  display: block;
+
+  font-size: 26px;
+
+  font-weight: 800;
+
+  margin: 18px 0 14px;
+
+  flex: 0 0 auto;
+
+}
+
+.term {
+
+  background: #fff1b8;
+
+  border-bottom: 2px solid #d8b429;
+
+  border-radius: 4px;
+
+  padding: 0 2px;
+
+  cursor: pointer;
+
+}
+.term:hover {
+  background: #ffe680;
+}
+.side-controls {
+
+  flex: 0 0 auto;
+
+  display: flex;
+
+  gap: 8px;
+
+  padding: 12px 0;
+
+  background: #fbf8f3;
+
+  z-index: 20;
+
+  border-bottom: 1px solid #ddd4c5;
+
+}
+
+.side-controls button {
+
+  border: 1px solid #d7d0c4;
+
+  background: white;
+
+  border-radius: 10px;
+
+  padding: 8px 10px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+}
+
+.term-box {
+
+  flex: 1 1 auto;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #ddd4c5;
+
+  border-radius: 18px;
+
+  padding: 18px;
+
+  background: #fffdf8;
+
+  box-shadow: 0 14px 34px rgba(30, 25, 18, 0.07);
+
+}
+
+.term-box h3 {
+  margin: 0 0 14px;
+  font-size: 25px;
+  line-height: 1.18;
+  font-weight: 800;
+}
+.term-box p {
+
+  font-size: var(--ctx-sidebar-font-size);
+
+  line-height: 1.58;
+
+  margin: 0 0 14px;
+
+}
+
+.term-box img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #f0ece3;
+  margin: 8px 0 12px;
+  cursor: zoom-in;
+}
+
+.img-meta {
+  margin: -4px 0 12px;
+  font-size: 12px;
+  color: #8a8277;
+  line-height: 1.35;
+}
+
+.brand {
+  grid-column: 1 / 2;
+  margin: 0 64px 34px;
+  padding: 22px 28px;
+  border: 1px solid #ddd4c5;
+  border-radius: 22px;
+  background: #fffdf8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  box-shadow: 0 14px 36px rgba(30, 25, 18, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-word {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -0.085em;
+  color: #171717;
+}
+
+.brand-format {
+  margin-top: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: #6157ff;
+}
+
+.brand-meta {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.brand-link {
+  color: #6157ff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+
+  .reader-layout {
+
+    display: block;
+
+  }
+
+  aside {
+
+    width: auto;
+
+    min-width: 0;
+
+    height: auto;
+
+    position: static;
+
+    border-left: 0;
+
+    border-top: 1px solid #ddd4c5;
+
+  }
+
+  main {
+
+    padding: 32px 24px;
+
+  }
+
+  h1 {
+
+    font-size: 40px;
+
+  }
+
+  .brand {
+
+    margin: 24px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    grid-column: auto;
+
+  }
+
+  .brand-name {
+
+    font-size: 36px;
+
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="reader-layout">
+
+<main>
+
+<h1>Społeczna odpowiedzialność przedsiębiorstw</h1>
+<div class="reader-subtitle">CTXBOOK – text easy to understand</div>
+
+
+
+    <figure class="reader-hero-image">
+      <img src="https://images.pexels.com/photos/32341423/pexels-photo-32341423.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="A solitary tree stands in a lush green meadow against a bright blue sky with fluffy clouds.">
+      <figcaption>A solitary tree stands in a lush green meadow against a bright blue sky with fluffy clouds.
+Pexels · Fatih Dağlı</figcaption>
+    </figure>
+  
+
+
+      <section>
+
+        
+
+        <h2>Co to jest społeczna odpowiedzialność przedsiębiorstw?</h2>
+
+        
+        <p class="reader-paragraph">
+          Dawniej firmy stawiały na maksymalny zysk, nawet kosztem środowiska lub pracowników. Teraz <span class="term" data-term="csr">społeczna odpowiedzialność przedsiębiorstw</span> (CSR) staje się ważna.
+CSR to skrót od Corporate Social Responsibility.
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="csr">CSR</span> to podejmowanie działań wykraczających poza zysk, które uwzględniają interes społeczny, chronią środowisko i są etyczne.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Istota społecznej odpowiedzialności biznesu (CSR)</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="csr">CSR</span> to prowadzenie biznesu tak, by osiągać zyski i jednocześnie działać odpowiedzialnie wobec ludzi i natury.
+        </p>
+      
+        <p class="reader-paragraph">
+          Firmy uwzględniają skutki decyzji, dbają o pracowników i klientów, wspierają społeczności oraz ograniczają zanieczyszczenia.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Norma ISO 26000</h2>
+
+        
+        <p class="reader-paragraph">
+          ISO 26000 to ważny standard <span class="term" data-term="csr">CSR</span>, który zawiera wskazówki o wpływie firmy na społeczeństwo i środowisko oraz o etyce.
+        </p>
+      
+        <p class="reader-paragraph">
+          Dotyczy praw człowieka, pracy, ochrony środowiska, uczciwych praktyk, ochrony konsumentów i wspierania lokalnych społeczności.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Narzędzia realizacji społecznej odpowiedzialności biznesu</h2>
+
+        
+        <p class="reader-paragraph">
+          Firmy realizują <span class="term" data-term="csr">CSR</span> przez kampanie edukacyjne, zdrowotne, ekologiczne, charytatywne, np. sadzenie drzew czy zbiórki dla potrzebujących.
+        </p>
+      
+        <p class="reader-paragraph">
+          Tworzą <span class="term" data-term="kodeks_etyczny">kodeksy etyczne</span> i szkolą pracowników promując uczciwość.
+        </p>
+      
+        <p class="reader-paragraph">
+          Chronią środowisko ograniczając emisję, odpady i zużycie energii – np. przez recykling i energię odnawialną.
+        </p>
+      
+        <p class="reader-paragraph">
+          Publikują <span class="term" data-term="raporty_spoleczne">raporty społeczne</span> pokazujące wpływ działań na społeczeństwo i środowisko.
+        </p>
+      
+        <p class="reader-paragraph">
+          Wspierają lokalne wydarzenia i organizacje oraz inwestują w rozwój pracowników przez szkolenia i kursy.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Dlaczego przedsiębiorstwa są odpowiedzialne społecznie?</h2>
+
+        
+        <p class="reader-paragraph">
+          Firmy wdrażają <span class="term" data-term="csr">CSR</span>, bo społeczeństwo i klienci tego oczekują, a dobre działania poprawiają reputację.
+        </p>
+      
+        <p class="reader-paragraph">
+          Odpowiedzialność społeczna buduje przewagę konkurencyjną i pozytywne relacje z klientami, pracownikami, inwestorami i społecznościami.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Korzyści społeczne wynikające z CSR</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="csr">CSR</span> pomaga rozwijać gospodarkę z poszanowaniem środowiska i społeczeństwa.
+        </p>
+      
+        <p class="reader-paragraph">
+          Firmy ograniczają zanieczyszczenia, emisję CO2 i marnowanie zasobów.
+        </p>
+      
+        <p class="reader-paragraph">
+          Budują etyczne relacje z pracownikami, klientami i konkurencją.
+        </p>
+      
+        <p class="reader-paragraph">
+          Poprawiają warunki pracy, bezpieczeństwo i atmosferę.
+        </p>
+      
+        <p class="reader-paragraph">
+          Wspierają lokalne inicjatywy edukacyjne i ekologiczne.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Korzyści dla przedsiębiorstwa wynikające z CSR</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="csr">CSR</span> przyciąga inwestorów ceniących uczciwość i stabilność.
+        </p>
+      
+        <p class="reader-paragraph">
+          Zwiększa lojalność klientów wybierających etyczne i ekologiczne firmy.
+        </p>
+      
+        <p class="reader-paragraph">
+          Poprawia relacje i zaufanie w społecznościach lokalnych.
+        </p>
+      
+        <p class="reader-paragraph">
+          Buduje pozytywny wizerunek i prestiż firmy.
+        </p>
+      
+        <p class="reader-paragraph">
+          Wzmacnia konkurencyjność i przyciąga partnerów oraz pracowników.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Sukces w biznesie można osiągnąć etycznie</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="stephen_covey">Stephen R. Covey</span> podkreślał, że sukces opiera się na etyce, zaufaniu, uczciwości i lojalności.
+        </p>
+      
+        <p class="reader-paragraph">
+          Pokazuje to, że można osiągać wyniki bez łamania zasad moralnych.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Praktyki przedsiębiorstw odpowiedzialnych społecznie</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="pkn_orlen">PKN ORLEN</span> prowadzi działania ekologiczne takie jak ochrona sokoła wędrownego i pszczół.
+        </p>
+      
+        <p class="reader-paragraph">
+          Zakłada też łąki kwietne dla bioróżnorodności i poprawy mikroklimatu.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Dlaczego CSR jest ważny?</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="csr">CSR</span> poprawia jakość życia, chroni środowisko i zwiększa zaufanie do firm.
+        </p>
+      
+        <p class="reader-paragraph">
+          Wspiera rozwój gospodarczy i pomaga budować uczciwy rynek.
+        </p>
+      
+        <p class="reader-paragraph">
+          Pokazuje, że firma może jednocześnie zarabiać i działać etycznie, dbając o ludzi i przyrodę.
+        </p>
+      
+
+        
+
+      </section>
+    
+      <section>
+
+        
+
+        <h2>Najważniejsze informacje – podsumowanie</h2>
+
+        
+        <p class="reader-paragraph">
+          <span class="term" data-term="csr">CSR</span> oznacza prowadzenie biznesu z dbałością o społeczeństwo i środowisko, nie tylko zysk.
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="iso_26000">Norma ISO 26000</span> jest ważnym standardem CSR.
+        </p>
+      
+        <p class="reader-paragraph">
+          Działania <span class="term" data-term="csr">CSR</span> obejmują ochronę środowiska, wsparcie pracowników i lokalnych społeczności.
+        </p>
+      
+        <p class="reader-paragraph">
+          <span class="term" data-term="csr">CSR</span> przynosi korzyści społeczeństwu i firmom.
+        </p>
+      
+        <p class="reader-paragraph">
+          Firmy odpowiedzialne społecznie budują zaufanie i lepszy wizerunek.
+        </p>
+      
+        <p class="reader-paragraph">
+          Sukces można osiągnąć w sposób etyczny i uczciwy.
+        </p>
+      
+
+        
+
+      </section>
+    
+
+</main>
+
+
+<aside id="sidePanel">
+
+  <div class="side-controls">
+
+    <button onclick="changeFontSize(-1)" title="Smaller main text">A−</button>
+
+    <button onclick="changeFontSize(1)" title="Larger main text">A+</button>
+
+    <button onclick="changeSidebarFontSize(-1)" title="Smaller explanations">🅰−</button>
+
+    <button onclick="changeSidebarFontSize(1)" title="Larger explanations">🅰+</button>
+
+    <button onclick="changeSidebar(-40)" title="Narrow panel">◁</button>
+
+    <button onclick="changeSidebar(40)" title="Wider panel">▷</button>
+
+  </div>
+
+  <div class="term-box">
+    <h3>Wyjaśnienia</h3>
+    <p>Kliknij podkreślone pojęcie w tekście.</p>
+  </div>
+
+</aside>
+
+</div>
+
+<div class="brand">
+
+  <div class="brand-logo">
+    <span class="brand-word">
+      <span class="brand-name">contextero</span>
+      <span class="brand-format">CTXBOOK FORMAT</span>
+    </span>
+  </div>
+
+  <div class="brand-meta">
+    Powered by <a class="brand-link" href="https://contextero.com" target="_blank">contextero.com</a>
+  </div>
+
+</div>
+
+<script>
+
+
+
+function changeFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebar(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-width')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-width',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebarFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  const divider = document.getElementById('resizeDivider');
+
+  if (!divider) return;
+
+  let resizing = false;
+
+  divider.addEventListener('mousedown', () => {
+
+    resizing = true;
+
+    document.body.style.cursor = 'col-resize';
+
+  });
+
+  window.addEventListener('mouseup', () => {
+
+    resizing = false;
+
+    document.body.style.cursor = '';
+
+  });
+
+  window.addEventListener('mousemove', (event) => {
+
+    if (!resizing) return;
+
+    const rawWidth = window.innerWidth - event.clientX;
+
+const width = Math.max(
+  260,
+  Math.min(rawWidth, window.innerWidth * 0.5)
+);
+
+    document.documentElement.style.setProperty(
+      '--ctx-sidebar-width',
+      width + 'px'
+    );
+
+  });
+
+});
+
+
+
+function changeFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebar(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-width')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-width',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebarFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebar(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-width')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-width',
+    (current + delta) + 'px'
+  );
+
+}
+
+function changeSidebarFontSize(delta) {
+
+  const root = document.documentElement;
+
+  const current = parseInt(
+    getComputedStyle(root)
+      .getPropertyValue('--ctx-sidebar-font-size')
+  );
+
+  root.style.setProperty(
+    '--ctx-sidebar-font-size',
+    (current + delta) + 'px'
+  );
+
+}
+
+const TERMS = {"csr":{"title":"Społeczna odpowiedzialność przedsiębiorstw","aliases":["społeczna odpowiedzialność przedsiębiorstw","CSR"],"explanation":"CSR to podejmowanie przez firmy działań, które wykraczają poza zysk i uwzględniają społeczne i środowiskowe aspekty.","why":"To pozwala firmom działać etycznie i z korzyścią dla społeczeństwa oraz planety.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/3/37/CSR_framework_-_value.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/3/37/CSR_framework_-_value.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"CSR framework","source":"Wikimedia Commons · Public domain · Touro","fileTitle":"CSR framework - value.jpg","query":"Społeczna odpowiedzialność przedsiębiorstw","author":""}},"iso_26000":{"title":"Norma ISO 26000","aliases":["norma ISO 26000"],"explanation":"Standard zawierający wytyczne dla organizacji dotyczące społecznej odpowiedzialności, praw człowieka, ochrony środowiska i etyki.","why":"Pomaga firmom działać odpowiedzialnie i transparentnie.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/0/0c/QuestionsCentralesISO26000.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/0/0c/QuestionsCentralesISO26000.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"Central questions concerning ISO 26000","source":"Wikimedia Commons · Public domain · Commission de normalisation ISO 26000","fileTitle":"QuestionsCentralesISO26000.jpg","query":"Norma ISO 26000","author":""}},"kampanie_spoleczne":{"title":"Kampanie społeczne","aliases":["kampanie społeczne","akcje edukacyjne","akcje ekologiczne"],"explanation":"Działania firm na rzecz edukacji, zdrowia, ochrony środowiska oraz pomocy charytatywnej.","why":"Wspierają społeczność i promują ważne wartości.","image":{"url":"https://pixabay.com/get/g0c9ac775f82ab6284cb03bad0b10a2475c1cac7c1ab317ea84178e9b4760f3aabf579aa2f9cf0e0339b73f133555ff046a42ac9c20f644a02975dcb866917fc0_640.jpg","originalUrl":"https://pixabay.com/photos/accesories-illuminati-campaign-2462082/","label":"kampanie społeczne community campaign","caption":"kampanie społeczne community campaign","source":"Pixabay · adriansosaindumentaria","rawTags":"accesories, illuminati, campaign, mason, illuminati, illuminati, illuminati, illuminati, illuminati","score":12}},"kodeks_etyczny":{"title":"Kodeks etyczny","aliases":["kodeksy etyczne"],"explanation":"Zbiór zasad zachowania, które promują uczciwość i odpowiedzialność w firmie.","why":"Pomaga pracownikom postępować zgodnie z wartościami organizacji.","image":{"url":"https://pixabay.com/get/gfa603dc8582deef2649cf4fac2a14b60fe935aa0833bcde36102484f8440bc7c35ec54134eb9e924722a5fa34eda8e0a0e513f354b7af06b70730910b9b28508_640.jpg","originalUrl":"https://pixabay.com/photos/ethics-right-wrong-ethical-moral-2991600/","label":"kodeks etyczny ethical code","caption":"kodeks etyczny ethical code","source":"Pixabay · Tumisu","rawTags":"ethics, right, wrong, ethical, moral, integrity, honesty, morality, dilemma, responsibility, choice, value, correct, code, sign, principles, ethics, ethics, ethics, ethics, ethics, integrity","score":12}},"ochrona_srodowiska":{"title":"Ochrona środowiska","aliases":["ochrona środowiska naturalnego"],"explanation":"Działania ograniczające zanieczyszczenia, odpady i zużycie zasobów przez firmę.","why":"Chroni planetę i zapewnia zrównoważony rozwój.","image":{"url":"https://pixabay.com/get/g4d225fdd2014623f474e871dc3483887f11ffdd8b6670f095319be43db6691b7537da457cda87e7243e20fdb0f2adec1ad43d4080c1c2fbe15dabca320a5c4d4_640.jpg","originalUrl":"https://pixabay.com/photos/bottle-pollution-garbage-grass-7117637/","label":"ochrona środowiska environmental protection","caption":"ochrona środowiska environmental protection","source":"Pixabay · Letone","rawTags":"bottle, pollution, garbage, grass, lawn, nature, environmental protection, beer bottle, bottle, bottle, pollution, pollution, pollution, pollution, pollution, garbage, garbage, lawn, lawn, environmental protection, environmental protection, environmental protection, beer bottle","score":12}},"raporty_spoleczne":{"title":"Raporty społeczne","aliases":["raporty społeczne"],"explanation":"Dokumenty przedstawiające wpływ firmy na społeczeństwo i środowisko.","why":"Zwiększają przejrzystość i zaufanie do przedsiębiorstw.","image":{"url":"https://pixabay.com/get/gc7474d6621151546bbf06be813b2851e564c51b75ffb62a61fdcc33af8faa5c844120ddc9fb2a8616085a8f608941e814f21b0b7026d9fb390242bfcd00f4afb_640.jpg","originalUrl":"https://pixabay.com/photos/computer-iphone-technology-3170504/","label":"raporty społeczne social report","caption":"raporty społeczne social report","source":"Pixabay · Stroganova","rawTags":"computer, iphone, technology, the internet, keyboard, iphone8, vk, vkontakte, social media, white, apple, vkontakte, vkontakte, vkontakte, vkontakte, vkontakte","score":12}},"spolecznosc_lokalna":{"title":"Społeczność lokalna","aliases":["społeczności lokalne"],"explanation":"Grupa ludzi mieszkających w danym miejscu, którą firmy wspierają przez różne działania.","why":"Budowanie relacji z lokalną społecznością wzmacnia wsparcie dla firmy.","image":{"url":"https://pixabay.com/get/gd375f703d9de17ef341b7d996462c2398bbfcec698ac6a1f1744f3511c08185f7d4478f40274acf0551130dc54279f05b3e2fa84415ec05cf3003c29020a0f07_640.jpg","originalUrl":"https://pixabay.com/photos/kayh-local-community-town-center-3032086/","label":"społeczność lokalna local community","caption":"społeczność lokalna local community","source":"Pixabay · Hans","rawTags":"kayh, local community, town center, swabian alb, herrenberg, local community, local community, local community, local community, local community","score":12}},"inwestorzy":{"title":"Inwestorzy","aliases":["inwestorzy"],"explanation":"Osoby lub instytucje inwestujące kapitał w firmy, szukające stabilności i odpowiedzialności.","why":"Ich wsparcie pomaga firmom się rozwijać i utrzymywać dobre praktyki.","image":{"url":"https://pixabay.com/get/g5c052c451d3be0d838c7b7df028bc03387796250919817a51e9ff618281784bc608bc6addda1ef133e418991d82b64fddcbe52caa5de14c17a2281b6894cd861_640.jpg","originalUrl":"https://pixabay.com/photos/business-angel-dollar-money-3410930/","label":"inwestorzy business investors","caption":"inwestorzy business investors","source":"Pixabay · Tumisu","rawTags":"business angel, dollar, money, investor, investment, venture, capital, fund, businessman, success, rich, invest, startup, banking, cash, wealth, angel, wing, value, finance, financial, entrepreneur, business, investor, investor, investor, investor, investor","score":9}},"etyka":{"title":"Etyka biznesu","aliases":["etyka"],"explanation":"Zasady moralne kierujące działaniami firm i pracowników.","why":"Zapewnia uczciwość i zaufanie w biznesie.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/8/85/Ethics_in_business_part_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/8/85/Ethics_in_business_part_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"moral principles that define and wrong behavior in the world of business.","source":"Wikimedia Commons · CC BY-SA 4.0 · Kjeleven","fileTitle":"Ethics in business part 2.jpg","query":"Etyka biznesu","author":""}},"stephen_covey":{"title":"Stephen R. Covey","aliases":["Stephen R. Covey"],"explanation":"Autor książek o przywództwie i rozwoju osobistym, propagujący etyczny sukces biznesowy.","why":"Pokazuje, że sukces można osiągać bez łamania zasad moralnych.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Stephen_Covey.jpg/1280px-Stephen_Covey.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/3/33/Stephen_Covey.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"Professor Stephen R. Covey","source":"Wikimedia Commons · Public domain · Sterling.morris (talk)","fileTitle":"Stephen Covey.jpg","query":"Stephen R. Covey Stephen Covey","author":""}},"pkn_orlen":{"title":"PKN ORLEN","aliases":["PKN ORLEN"],"explanation":"Przykład polskiej firmy realizującej projekty CSR, takie jak ochrona ptaków i pszczół.","why":"Pokazuje praktyczne zastosowanie społecznej odpowiedzialności biznesu.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/P%C5%82ock%2C_Orlen%2C_budynek_biurowy.jpg/1280px-P%C5%82ock%2C_Orlen%2C_budynek_biurowy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/4/4d/P%C5%82ock%2C_Orlen%2C_budynek_biurowy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"PKN Orlen headquarters in Płock, Poland.","source":"Wikimedia Commons · CC BY-SA 3.0 pl · When reusing, please credit me as author: Adam Kliczek, http://memoriesstay.com (CC-BY-SA-","fileTitle":"Płock, Orlen, budynek biurowy.jpg","query":"PKN ORLEN PKN ORLEN","author":""}},"bioroznorodnosc":{"title":"Bioróżnorodność","aliases":["bioróżnorodność"],"explanation":"Różnorodność form życia w środowisku, którą firmy mogą chronić przez swoje działania.","why":"Zapewnia zdrowie ekosystemów i przyszłość dla planety.","image":{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Diakonievene._Natuurgebied_van_It_Fryske_Gea._05-02-2025._Berk_%28Betula%29_%28d.j.b%29.jpg/1280px-Diakonievene._Natuurgebied_van_It_Fryske_Gea._05-02-2025._Berk_%28Betula%29_%28d.j.b%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","originalUrl":"https://upload.wikimedia.org/wikipedia/commons/6/63/Diakonievene._Natuurgebied_van_It_Fryske_Gea._05-02-2025._Berk_%28Betula%29_%28d.j.b%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","label":"Diakonievene. Nature reserve of It Fryske Gea. A dead birch (Betula) that can go through the entire decomposition process in this dark, quiet corner, to the benefit of biodiversity for the environment.","source":"Wikimedia Commons · CC BY-SA 4.0 · Dominicus Johannes Bergsma","fileTitle":"Diakonievene. Natuurgebied van It Fryske Gea. 05-02-2025. Berk (Betula) (d.j.b).jpg","query":"Bioróżnorodność","author":""}},"corporate_social_responsibility":{"title":"Społeczna odpowiedzialność przedsiębiorstw","aliases":["Społeczna odpowiedzialność przedsiębiorstw","Corporate Social Responsibility","CSR","Odpowiedzialność społeczna biznesu"],"explanation":"Społeczna odpowiedzialność przedsiębiorstw (CSR) to podejście, w którym firmy dobrowolnie dbają nie tylko o zysk, ale także o dobro społeczeństwa, środowiska i swoich pracowników.","why":"CSR jest ważne, ponieważ pomaga firmom działać etycznie, zmniejszać negatywny wpływ na środowisko oraz poprawiać jakość życia społeczności, w których funkcjonują, co przyczynia się do zrównoważonego rozwoju.","image":{"label":"corporate social responsibility, business ethics, environment care","source":"Obraz do uzupełnienia"}}};
+
+document.querySelectorAll('.term').forEach(el => {
+  el.addEventListener('click', () => {
+    const key = el.dataset.term;
+    const term = TERMS[key];
+
+    if (!term) return;
+
+ document.getElementById("sidePanel").innerHTML =
+
+  '<div class="side-controls">' +
+
+    '<button onclick="changeFontSize(-1)" title="Smaller main text">A−</button>' +
+
+    '<button onclick="changeFontSize(1)" title="Larger main text">A+</button>' +
+
+    '<button onclick="changeSidebarFontSize(-1)" title="Smaller explanations">🅰−</button>' +
+
+    '<button onclick="changeSidebarFontSize(1)" title="Larger explanations">🅰+</button>' +
+
+    '<button onclick="changeSidebar(-40)" title="Narrow panel">◁</button>' +
+
+    '<button onclick="changeSidebar(40)" title="Wider panel">▷</button>' +
+
+  '</div>' +
+  '<div class="term-box">' +
+
+    '<h3>' + term.title + '</h3>' +
+
+    (
+
+      term.image && term.image.url
+
+      ? '<div>' +
+
+          '<img src="' + term.image.url + '">' +
+
+          '<div class="img-meta">' + (term.image.source || '') + '</div>' +
+
+        '</div>'
+
+      : ''
+
+    ) +
+
+    '<p>' + term.explanation + '</p>' +
+
+    '<p><em>' + (term.why || '') + '</em></p>' +
+
+  '</div>';
+
+});
+});
+
+document.addEventListener('click', (event) => {
+
+  const button = event.target.closest('button');
+
+  if (button) {
+
+    button.style.transform = 'translateY(1px)';
+
+    button.style.opacity = '0.82';
+
+    setTimeout(() => {
+
+      button.style.transform = '';
+
+      button.style.opacity = '';
+
+    }, 140);
+
+  }
+
+  const img = event.target.closest('.term-box img');
+
+  if (!img) return;
+
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.inset = '0';
+  overlay.style.background = 'rgba(0,0,0,.82)';
+  overlay.style.display = 'grid';
+  overlay.style.placeItems = 'center';
+  overlay.style.zIndex = '9999';
+  overlay.style.cursor = 'zoom-out';
+
+  const big = document.createElement('img');
+  big.src = img.src;
+  big.style.maxWidth = '92vw';
+  big.style.maxHeight = '92vh';
+  big.style.objectFit = 'contain';
+  big.style.borderRadius = '14px';
+  big.style.background = '#fff';
+
+  overlay.appendChild(big);
+  overlay.addEventListener('click', () => overlay.remove());
+  document.body.appendChild(overlay);
+});
+</script>
+
+</body>
+</html>
